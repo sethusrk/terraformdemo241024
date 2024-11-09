@@ -1,7 +1,7 @@
 resource "aws_instance" "firstserver" {
-      ami           = var.image_id
-  instance_type = var.instance_type
-count = var.server_count
+ami           = data.aws_ami.amlin.id
+instance_type = var.instance_type
+security_groups = data.aws_security_group.terraformdemo.id
 
   tags = {
     Name = "HelloWorld"
