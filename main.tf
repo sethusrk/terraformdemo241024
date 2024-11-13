@@ -25,3 +25,16 @@ module "security-group" {
   name = "test"
   vpc_id = var.vpc_id
 }
+
+module "ec2instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "5.7.1"
+  ami           = data.aws_ami.amlin.id
+  instance_type = var.instance_type
+  vpc_security_group_ids = [data.aws_security_group.test.id]
+
+    tags = {
+    Name = "HelloWorld"
+  }
+
+}

@@ -7,5 +7,5 @@ output "security_group_id" {
 }
 
 output "ec2_instance_id" {
-  value = module.ec2-instance.id
+  value = module.ec2instance.id
 }
