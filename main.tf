@@ -17,13 +17,14 @@ module "vpc" {
     tags = {
     Name = "myvpc"
   }
+  private_subnets = ["private"]
 }
 
 module "security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "5.2.0"
   name = "test"
-  vpc_id = var.vpc_id
+  vpc_id = module.vpc.vpc_id
 }
 
 module "ec2instance" {
