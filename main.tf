@@ -14,6 +14,7 @@ vpc_security_group_ids = [data.aws_security_group.terraformdemo.id]
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.15.0"
+  azs = ["ap-south-1a","ap-south-1b"]
     tags = {
     Name = "myvpc"
   }
