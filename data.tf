@@ -1,4 +1,4 @@
-/*
+
 data "aws_ami" "amlin" {
   most_recent = true
 
@@ -8,7 +8,6 @@ data "aws_ami" "amlin" {
   }
 }
 
-data "aws_security_group" "terraformdemo" {
-  name = "Teeraformdemo"  
+data "aws_security_group" "test" {
+  name = "test"  
 }
-*/
