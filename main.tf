@@ -14,7 +14,7 @@ vpc_security_group_ids = [data.aws_security_group.terraformdemo.id]
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.15.0"
-  azs = ["ap-south-1a","ap-south-1b"]
+  azs = ["ap-south-1a"]
     tags = {
     Name = "myvpc"
   }
@@ -33,6 +33,7 @@ module "ec2instance" {
   version = "5.7.1"
   ami           = data.aws_ami.amlin.id
   instance_type = var.instance_type
+  subnet_id = module.vpc.private_subnets
   vpc_security_group_ids = [module.security-group.security_group_id]
 
     tags = {
