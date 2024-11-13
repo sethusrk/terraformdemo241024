@@ -18,7 +18,7 @@ module "vpc" {
     tags = {
     Name = "myvpc"
   }
-  private_subnets = ["private"]
+  private_subnets = ["10.0.1.0/24"]
 }
 
 module "security-group" {
