@@ -33,7 +33,7 @@ module "ec2instance" {
   version = "5.7.1"
   ami           = data.aws_ami.amlin.id
   instance_type = var.instance_type
-  #subnet_id = module.vpc.private_subnets
+  subnet_id = "subnet-0c9fa01885341c65e"
   vpc_security_group_ids = [module.security-group.security_group_id]
 
     tags = {
