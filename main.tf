@@ -31,7 +31,7 @@ module "ec2instance" {
   version = "5.7.1"
   ami           = data.aws_ami.amlin.id
   instance_type = var.instance_type
-  vpc_security_group_ids = [data.aws_security_group.test.id]
+  vpc_security_group_ids = [module.security-group.security_group_id]
 
     tags = {
     Name = "HelloWorld"

@@ -8,6 +8,4 @@ data "aws_ami" "amlin" {
   }
 }
 
-data "aws_security_group" "test" {
-  name = "test"  
-}
+
