@@ -28,6 +28,7 @@ module "security-group" {
   vpc_id = module.vpc.vpc_id
 }
 
+/*
 module "ec2instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "5.7.1"
@@ -41,3 +42,9 @@ module "ec2instance" {
   }
 
 }
+
+module "eks" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "20.29.0"
+}
+*/
