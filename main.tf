@@ -34,7 +34,7 @@ module "ec2instance" {
   version = "5.7.1"
   ami           = data.aws_ami.amlin.id
   instance_type = var.instance_type
-  subnet_id = "subnet-0c9fa01885341c65e"
+  subnet_id = var.private_subnet_id
   vpc_security_group_ids = [module.security-group.security_group_id]
 
     tags = {
@@ -42,9 +42,30 @@ module "ec2instance" {
   }
 
 }
+*/
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "20.29.0"
+
+  cluster_name    = var.cluster_name
+  cluster_version = "1.31"
+
+  vpc_id          = module.vpc.vpc_id
+  subnet_ids      = [var.private_subnet_id]
+
+  eks_managed_node_groups = {
+    example = {
+      desired_capacity = 2
+      max_capacity     = 3
+      min_capacity     = 1
+
+      instance_type = var.node_instance_type
+    }
+  }
+
+  tags = {
+    Environment = "dev"
+    Terraform   = "true"
+  }
 }
-*/
