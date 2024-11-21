@@ -9,8 +9,8 @@ variable "vpc_id" {
 }
 
 variable "private_subnet_id" {
-  type = string
-  default = "subnet-0fbfb8b4e745f6f0d"
+  type = list
+  default = ["subnet-0fbfb8b4e745f6f0d","subnet-0ebdbb956f3e541b8"]
 }
 
 variable "cluster_name" {
